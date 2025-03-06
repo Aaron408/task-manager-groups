@@ -93,6 +93,10 @@ const verifyToken = (allowedRoles) => async (req, res, next) => {
   }
 };
 
+app.get("/", (req, res) => {
+  res.send("Groups service running!");
+});
+
 //Obtenemos todos los grupos a los que pertenece el usuario
 app.get("/groups", verifyToken(["admin", "mortal"]), async (req, res) => {
   try {
